@@ -48,12 +48,15 @@ public class GeminiService {
             ResponseEntity<Map> response =
                     restTemplate.exchange(url, HttpMethod.POST, entity, Map.class);
 
-            Map choice =
-                    (Map) ((List<?>) response.getBody().get("choices")).get(0);
+            Map responseBody = response.getBody();
+            if (responseBody != null && responseBody.get("choices") instanceof List<?> choices && !choices.isEmpty()) {
+                Map choice = (Map) choices.get(0);
+                if (choice != null && choice.get("message") instanceof Map msg && msg.get("content") != null) {
+                    return msg.get("content").toString();
+                }
+            }
 
-            Map msg = (Map) choice.get("message");
-
-            return msg.get("content").toString();
+            return "No response content from API";
 
         } catch (Exception e) {
 
