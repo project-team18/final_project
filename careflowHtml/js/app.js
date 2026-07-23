@@ -1,5 +1,5 @@
 const button = document.getElementById("themeBtn");
-const API_BASE = window.location.hostname === '127.0.0.1' && window.location.port === '5500' ? 'http://localhost:8081' : '';
+const API_URL = getDashboardUrl();
 
 button.addEventListener("click", function () {
 
@@ -17,7 +17,15 @@ button.addEventListener("click", function () {
 
 });
 
-fetch(`${API_BASE}/dashboard`)
+console.log('Dashboard API URL:', API_URL);
+fetch(API_URL)
+
+function getDashboardUrl() {
+    if ((window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost') && window.location.port === '5500') {
+        return 'http://localhost:8081/dashboard';
+    }
+    return new URL('dashboard', window.location.href).toString();
+}
 
 .then(res => res.json())
 
