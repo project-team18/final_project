@@ -1,4 +1,5 @@
 const API_URL = computeTicketApiUrl();
+const selectedTicketId = getSelectedTicketId();
 
 console.log('Ticket API URL:', API_URL);
 
@@ -12,6 +13,10 @@ function computeTicketApiUrl() {
     }
 
     return new URL('../tickets', window.location.href).toString();
+}
+
+function getSelectedTicketId() {
+    return new URLSearchParams(window.location.search).get('id');
 }
 
 if (form) {

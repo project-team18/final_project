@@ -20,7 +20,7 @@ fetch(API_URL)
 
         data.recentTickets.forEach(ticket => {
             table.innerHTML += `
-            <tr>
+            <tr onclick="window.location.href='pages/my-tickets.html?id=${ticket.id}'" style="cursor:pointer;">
                 <td>${ticket.id}</td>
                 <td>${ticket.title}</td>
                 <td>${ticket.status}</td>
