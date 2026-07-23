@@ -1,11 +1,18 @@
-const API_BASE = (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost') && window.location.port === '5500' ? 'http://localhost:8081' : '';
-const API_URL = `${API_BASE}/tickets`;
+const API_URL = computeTicketApiUrl();
 
 console.log('Ticket API URL:', API_URL);
 
 /* CREATE TICKET */
 
 const form = document.getElementById("ticketForm");
+
+function computeTicketApiUrl() {
+    if ((window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost') && window.location.port === '5500') {
+        return 'http://localhost:8081/tickets';
+    }
+
+    return new URL('../tickets', window.location.href).toString();
+}
 
 if (form) {
 
