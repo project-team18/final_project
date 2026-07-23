@@ -3,6 +3,7 @@ package com.careflow.entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "ticket")
 public class Ticket {
 
     @Id

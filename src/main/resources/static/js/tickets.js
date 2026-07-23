@@ -1,4 +1,7 @@
-const API_URL = "http://localhost:8081/tickets";
+const API_BASE = (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost') && window.location.port === '5500' ? 'http://localhost:8081' : '';
+const API_URL = `${API_BASE}/tickets`;
+
+console.log('Ticket API URL:', API_URL);
 
 /* CREATE TICKET */
 
@@ -23,37 +26,27 @@ if (form) {
         };
 
         try {
-
+            console.log("Submitting ticket", ticket);
             const response = await fetch(API_URL, {
-
                 method: "POST",
-
                 headers: {
-
                     "Content-Type": "application/json"
-
                 },
-
                 body: JSON.stringify(ticket)
-
             });
 
+            const responseBody = await response.text();
             if (response.ok) {
-
+                console.log("Ticket created response", responseBody);
                 alert("Ticket Created Successfully!");
-
                 form.reset();
-
             } else {
-
-                alert("Unable to create ticket.");
-
+                console.error("Ticket create failed", response.status, responseBody);
+                alert(`Unable to create ticket: ${response.status} ${responseBody}`);
             }
-
         } catch (err) {
-
-            console.error(err);
-
+            console.error("Ticket submit error", err);
+            alert(`Unable to create ticket due to network error. Check console for details. URL=${API_URL}`);
         }
 
     });

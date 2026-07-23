@@ -1,3 +1,5 @@
+const API_BASE = window.location.hostname === '127.0.0.1' && window.location.port === '5500' ? 'http://localhost:8081' : '';
+
 async function sendMessage() {
 
     let input = document.getElementById("message");
@@ -27,7 +29,7 @@ async function sendMessage() {
 
     try {
 
-        const response = await fetch("http://localhost:8081/api/chat", {
+        const response = await fetch(`${API_BASE}/api/chat`, {
 
             method: "POST",
 

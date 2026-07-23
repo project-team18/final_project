@@ -1,4 +1,5 @@
 const button = document.getElementById("themeBtn");
+const API_BASE = window.location.hostname === '127.0.0.1' && window.location.port === '5500' ? 'http://localhost:8081' : '';
 
 button.addEventListener("click", function () {
 
@@ -16,11 +17,11 @@ button.addEventListener("click", function () {
 
 });
 
-fetch("http://localhost:8081/dashboard")
+fetch(`${API_BASE}/dashboard`)
 
-.then(res=>res.json())
+.then(res => res.json())
 
-.then(data=>{
+.then(data => {
 
 document.getElementById("totalTickets").innerHTML=data.totalTickets;
 
