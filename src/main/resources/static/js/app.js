@@ -19,6 +19,40 @@ button.addEventListener("click", function () {
 
 console.log('Dashboard API URL:', API_URL);
 fetch(API_URL)
+    .then(res => res.json())
+    .then(data => {
+
+    document.getElementById("totalTickets").innerHTML=data.totalTickets;
+
+    document.getElementById("openTickets").innerHTML=data.openTickets;
+
+    document.getElementById("resolvedTickets").innerHTML=data.resolvedTickets;
+
+    document.getElementById("totalChats").innerHTML=data.totalChats;
+
+    let table=document.getElementById("recentTickets");
+
+    table.innerHTML="";
+
+    data.recentTickets.forEach(ticket=>{
+
+    table.innerHTML+=`
+
+    <tr>
+
+    <td>${ticket.id}</td>
+
+    <td>${ticket.title}</td>
+
+    <td>${ticket.status}</td>
+
+    </tr>
+
+    `;
+
+    });
+
+    });
 
 function getDashboardUrl() {
     if ((window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost') && window.location.port === '5500') {
@@ -26,8 +60,6 @@ function getDashboardUrl() {
     }
     return new URL('dashboard', window.location.href).toString();
 }
-
-.then(res => res.json())
 
 .then(data => {
 
