@@ -227,6 +227,59 @@ select:focus{
     border-radius:10px;
 }
 
+body.dark {
+    --sidebar:#111827;
+    --background:#0f172a;
+    --card:#1f2937;
+    --text:#e2e8f0;
+    --shadow:0 10px 25px rgba(0,0,0,.4);
+}
+
+body.dark .sidebar {
+    background:var(--sidebar);
+}
+
+body.dark header,
+body.dark .card,
+body.dark table,
+body.dark .recent,
+body.dark .main,
+body.dark .container {
+    background:transparent;
+}
+
+body.dark table {
+    border-color: rgba(226,232,240,0.08);
+}
+
+body.dark th {
+    background:#1e293b;
+}
+
+body.dark tr:nth-child(even) {
+    background:#111827;
+}
+
+body.dark tr:hover {
+    background:#334155;
+}
+
+body.dark input,
+body.dark textarea,
+body.dark select {
+    background:#1f2937;
+    border-color:#334155;
+    color:#e2e8f0;
+}
+
+body.dark button {
+    background:#2563eb;
+}
+
+body.dark .card {
+    background:#111827;
+}
+
 /* Responsive */
 
 @media(max-width:768px){
