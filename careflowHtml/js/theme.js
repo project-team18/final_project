@@ -53,5 +53,9 @@
         button.addEventListener('click', toggleTheme);
     }
 
-    document.addEventListener('DOMContentLoaded', initTheme);
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTheme);
+    } else {
+        initTheme();
+    }
 })();

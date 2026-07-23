@@ -123,6 +123,23 @@ button:hover{
     background:var(--secondary);
 }
 
+#themeBtn {
+    background: var(--button-bg);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.18);
+    box-shadow: 0 15px 30px rgba(37,99,235,.18);
+    border-radius: 999px;
+    padding: 12px 28px;
+    min-width: 140px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+#themeBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(37,99,235,.24);
+}
+
 /* Cards */
 
 .cards{
