@@ -71,6 +71,11 @@ box-shadow:0 0 10px rgba(0,0,0,.1);
 
 }
 
+body.dark table {
+    background:#1f2937;
+    box-shadow:0 0 10px rgba(0,0,0,.4);
+}
+
 th{
 
 background:#2563eb;
@@ -79,6 +84,23 @@ color:white;
 
 padding:15px;
 
+}
+
+body.dark th{
+    background:#1e293b;
+}
+
+body.dark td{
+    color:#e2e8f0;
+    border-color:rgba(148,163,184,.2);
+}
+
+body.dark tr:nth-child(even){
+    background:#111827;
+}
+
+body.dark tr:hover{
+    background:#334155;
 }
 
 td{
