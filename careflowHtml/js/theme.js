@@ -34,7 +34,7 @@
         const vars = isDark ? darkTheme : lightTheme;
         Object.entries(vars).forEach(([name, value]) => document.documentElement.style.setProperty(name, value));
         if (button) {
-            button.innerHTML = isDark ? 'Light Mode' : 'Dark Mode';
+            button.textContent = isDark ? 'Light Mode' : 'Dark Mode';
         }
     }
 
@@ -58,4 +58,6 @@
     } else {
         initTheme();
     }
+
+    window.careflowThemeLoaded = true;
 })();
