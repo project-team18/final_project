@@ -1,10 +1,16 @@
-const button = document.getElementById("themeBtn");
 const API_URL = getDashboardUrl();
 
-button.addEventListener("click", function () {
-    document.body.classList.toggle("dark");
+function initThemeToggle() {
+    const button = document.getElementById("themeBtn");
+    if (!button) return;
     button.innerHTML = document.body.classList.contains("dark") ? "Light Mode" : "Dark Mode";
-});
+    button.addEventListener("click", function () {
+        document.body.classList.toggle("dark");
+        button.innerHTML = document.body.classList.contains("dark") ? "Light Mode" : "Dark Mode";
+    });
+}
+
+document.addEventListener("DOMContentLoaded", initThemeToggle);
 
 console.log('Dashboard API URL:', API_URL);
 fetch(API_URL)

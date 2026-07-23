@@ -230,54 +230,116 @@ select:focus{
 body.dark {
     --sidebar:#111827;
     --background:#0f172a;
-    --card:#1f2937;
+    --card:#111827;
     --text:#e2e8f0;
     --shadow:0 10px 25px rgba(0,0,0,.4);
+    --table-header:#1e293b;
+    --table-row-even:#111827;
+    --table-row-hover:#334155;
+    --input-bg:#1f2937;
+    --input-border:#334155;
+    --button-bg:#2563eb;
+}
+
+body.dark {
+    background:var(--background);
+    color:var(--text);
 }
 
 body.dark .sidebar {
     background:var(--sidebar);
 }
 
-body.dark header,
-body.dark .card,
-body.dark table,
-body.dark .recent,
+body.dark .sidebar li a {
+    color:var(--text);
+}
+
+body.dark .sidebar li:hover,
+body.dark .sidebar li.active {
+    background:var(--button-bg);
+}
+
 body.dark .main,
+body.dark header,
+body.dark .cards,
+body.dark .recent,
 body.dark .container {
     background:transparent;
 }
 
+body.dark header h1,
+body.dark .card h3,
+body.dark .card p,
+body.dark th,
+body.dark td {
+    color:var(--text);
+}
+
+body.dark .card {
+    background:var(--card);
+    color:var(--text);
+    box-shadow:var(--shadow);
+}
+
 body.dark table {
+    background:transparent;
     border-color: rgba(226,232,240,0.08);
 }
 
 body.dark th {
-    background:#1e293b;
+    background:var(--table-header);
 }
 
 body.dark tr:nth-child(even) {
-    background:#111827;
+    background:var(--table-row-even);
 }
 
 body.dark tr:hover {
-    background:#334155;
+    background:var(--table-row-hover);
 }
 
 body.dark input,
 body.dark textarea,
 body.dark select {
-    background:#1f2937;
-    border-color:#334155;
-    color:#e2e8f0;
+    background:var(--input-bg);
+    border-color:var(--input-border);
+    color:var(--text);
 }
 
 body.dark button {
-    background:#2563eb;
+    background:var(--button-bg);
 }
 
 body.dark .card {
-    background:#111827;
+    background:var(--card);
+}
+
+body.dark .main,
+body.dark .cards,
+body.dark .recent {
+    background:transparent;
+}
+
+body.dark table {
+    background:var(--card);
+}
+
+body.dark th,
+body.dark td {
+    color:var(--text);
+}
+
+body.dark .sidebar li a {
+    color:var(--text);
+}
+
+body.dark .sidebar li:hover,
+body.dark .sidebar li.active {
+    background:var(--button-bg);
+}
+
+body.dark .card:hover {
+    transform:translateY(-8px);
 }
 
 /* Responsive */
